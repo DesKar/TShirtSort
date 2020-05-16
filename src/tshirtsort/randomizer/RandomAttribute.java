@@ -4,11 +4,11 @@ import tshirtsort.models.Color;
 import tshirtsort.models.Fabric;
 import tshirtsort.models.Size;
 
-public class RandomGenerator {
+public class RandomAttribute {
 
     public String getRandomName() {
-        int leftLimit = 97; // letter 'a'
-        int rightLimit = 122; // letter 'z'
+        int leftLimit = 'a';
+        int rightLimit = 'z';
         int targetStringLength = 10;
         java.util.Random random = new java.util.Random();
 
@@ -18,19 +18,22 @@ public class RandomGenerator {
                 .toString();
         return (name);
     }
-
+    
     public Color getRandomColor() {
-        Color color = Color.values()[getRandomNumberInRange(0, 6)];
+        Color[] colors = Color.values();
+        Color color = colors[getRandomNumberInRange(0, colors.length)];
         return color;
     }
 
     public Size getRandomSize() {
-        Size size = Size.values()[getRandomNumberInRange(0, 6)];
+        Size[] sizes = Size.values();
+        Size size = sizes[getRandomNumberInRange(0, sizes.length)];
         return size;
     }
 
     public Fabric getRandomFabric() {
-        Fabric fabric = Fabric.values()[getRandomNumberInRange(0, 6)];
+        Fabric [] fabrics = Fabric.values();
+        Fabric fabric = fabrics[getRandomNumberInRange(0, fabrics.length)];
         return fabric;
     }
 

@@ -8,7 +8,7 @@ import tshirtsort.models.TShirt;
 public class RandomTShirt {
 
     public TShirt generate() {
-        RandomGenerator r = new RandomGenerator();
+        RandomAttribute r = new RandomAttribute();
         Color color = r.getRandomColor();
         Size size = r.getRandomSize();
         Fabric fabric = r.getRandomFabric();
