@@ -21,19 +21,19 @@ public class RandomAttribute {
     
     public Color getRandomColor() {
         Color[] colors = Color.values();
-        Color color = colors[getRandomNumberInRange(0, colors.length)];
+        Color color = colors[getRandomNumberInRange(0, colors.length -1)];
         return color;
     }
 
     public Size getRandomSize() {
         Size[] sizes = Size.values();
-        Size size = sizes[getRandomNumberInRange(0, sizes.length)];
+        Size size = sizes[getRandomNumberInRange(0, sizes.length - 1)];
         return size;
     }
 
     public Fabric getRandomFabric() {
         Fabric [] fabrics = Fabric.values();
-        Fabric fabric = fabrics[getRandomNumberInRange(0, fabrics.length)];
+        Fabric fabric = fabrics[getRandomNumberInRange(0, fabrics.length - 1)];
         return fabric;
     }
 
