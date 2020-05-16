@@ -4,109 +4,35 @@ import java.util.List;
 import tshirtsort.models.TShirt;
 
 public class QuickSort {
+    
+//    TODO to be passed to an interface when all other algorithms are implemented
+    public void sort(List<TShirt> arr, ISortingStrategy sortingStrategy){
+        quickSort(arr, 0, arr.size()-1, sortingStrategy);
+    }
 
-    // low = arr.get(low), low = 4
-    // high = arr.get(high), high = 0
-    // boolean sortType, sortType == true, ASC --  sortType == false, DESC
-    // int sortByProperty 
-    // sortByProperty == 1 -- Size
-    // sortByProperty == 2 -- Color 
-    // sortByProperty == 3 -- Fabric 
-    public void sort(List<TShirt> arr, int low, int high, boolean sortType, int sortByProperty) {
+    public void quickSort(List<TShirt> arr, int low, int high, ISortingStrategy sortingStrategy) {
         if (low < high) {
-            /* pi is partitioning index, arr[pi] is  
-              now at right place */
-            int pi = partition(arr, low, high, sortType, sortByProperty);
+            int pi = partition(arr, low, high, sortingStrategy);
 
-            // Recursively sort elements before 
-            // partition and after partition 
-            sort(arr, low, pi - 1, sortType, sortByProperty);
-            sort(arr, pi + 1, high, sortType, sortByProperty);
+            quickSort(arr, low, pi - 1, sortingStrategy);
+            quickSort(arr, pi + 1, high, sortingStrategy);
         }
     }
 
-    // boolean sortType, sortType == true, ASC --  sortType == false, DESC
-    // int sortByProperty 
-    // sortByProperty == 1 -- Size
-    // sortByProperty == 2 -- Color 
-    // sortByProperty == 3 -- Fabric 
-    int partition(List<TShirt> arr, int low, int high, boolean sortType, int sortByProperty) {
+    int partition(List<TShirt> arr, int low, int high, ISortingStrategy sortingStrategy) {
         TShirt pivot = arr.get(high);
-        int i = (low - 1); // index of smaller element 
+        int i = (low - 1);
         for (int j = low; j < high; j++) {
-            // If current element is smaller than the pivot 
-            switch (sortByProperty) {
-                // Size
-                case 1:
-                    if (sortType) {
-                        if (arr.get(j).getSize().ordinal() < pivot.getSize().ordinal()) {
-                            i++;
+            int compareResult = sortingStrategy.compare(arr.get(j), pivot);
+            if (compareResult > 0) {
+                i++;
 
-                            // swap arr[i] and arr[j] 
-                            TShirt temp = arr.get(i);
-                            arr.set(i, arr.get(j));
-                            arr.set(j, temp);
-                        }
-                    } else {
-                        if (arr.get(j).getSize().ordinal() > pivot.getSize().ordinal()) {
-                            i++;
-
-                            // swap arr[i] and arr[j] 
-                            TShirt temp = arr.get(i);
-                            arr.set(i, arr.get(j));
-                            arr.set(j, temp);
-                        }
-                    }
-                    break;
-                // Color
-                case 2:
-                    if (sortType) {
-                        if (arr.get(j).getColor().ordinal() < pivot.getColor().ordinal()) {
-                            i++;
-
-                            // swap arr[i] and arr[j] 
-                            TShirt temp = arr.get(i);
-                            arr.set(i, arr.get(j));
-                            arr.set(j, temp);
-                        }
-                    } else {
-                        if (arr.get(j).getColor().ordinal() > pivot.getColor().ordinal()) {
-                            i++;
-
-                            // swap arr[i] and arr[j] 
-                            TShirt temp = arr.get(i);
-                            arr.set(i, arr.get(j));
-                            arr.set(j, temp);
-                        }
-                    }
-                    break;
-                // Fabric
-                case 3:
-                    if (sortType) {
-                        if (arr.get(j).getFabric().ordinal() < pivot.getFabric().ordinal()) {
-                            i++;
-
-                            // swap arr[i] and arr[j] 
-                            TShirt temp = arr.get(i);
-                            arr.set(i, arr.get(j));
-                            arr.set(j, temp);
-                        }
-                    } else {
-                        if (arr.get(j).getFabric().ordinal() > pivot.getFabric().ordinal()) {
-                            i++;
-
-                            // swap arr[i] and arr[j] 
-                            TShirt temp = arr.get(i);
-                            arr.set(i, arr.get(j));
-                            arr.set(j, temp);
-                        }
-                    }
-                    break;
+                TShirt temp = arr.get(i);
+                arr.set(i, arr.get(j));
+                arr.set(j, temp);
             }
-
         }
 
-        // swap arr[i+1] and arr[high] (or pivot) 
         TShirt temp = arr.get(i + 1);
         arr.set(i + 1, arr.get(high));
         arr.set(high, temp);
