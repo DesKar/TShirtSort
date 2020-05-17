@@ -28,16 +28,9 @@ public class MainClass {
                 System.out.println("Sorting Algorithm: " + sortingAlgorithm.toString());
                 System.out.println("Sorting Strategy: " + sortingStrategy.toString());
                 System.out.println("Lapsed time: " + (endTime - startTime));
-//                printTShirts(tShirts);
+                System.out.println("-----------------------------------------");
             }
 
         }
-    }
-
-    public static void printTShirts(List<TShirt> tShirst) {
-        for (TShirt tShirt : tShirst) {
-            System.out.println(tShirt);
-        }
-        System.out.println("--------------------");
     }
 }
