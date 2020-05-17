@@ -12,5 +12,5 @@ public interface ISortingStrategy {
       * @returns 
       */
     int compare(TShirt t1, TShirt t2);
-
+    
 }
