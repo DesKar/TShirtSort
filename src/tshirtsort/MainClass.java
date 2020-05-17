@@ -1,82 +1,43 @@
 package tshirtsort;
 
 import java.util.List;
+import tshirtsort.factories.SortingAlgorithmFactory;
+import tshirtsort.factories.SortingStrategyFactory;
 import tshirtsort.factories.TShirtFactory;
 import tshirtsort.models.TShirt;
-import tshirtsort.sorting.BubbleSort;
-import tshirtsort.sorting.QuickSort;
+import tshirtsort.sorting.algorithms.ISortingAlgorithm;
+import tshirtsort.sortingstrategies.ISortingStrategy;
 
 public class MainClass {
 
     public static void main(String[] args) {
         TShirtFactory tFactory = new TShirtFactory();
-        List<TShirt> shirts = tFactory.TShirtGenerateN(3);
-        QuickSort qs = new QuickSort();
-        BubbleSort bs = new BubbleSort();
-        // BucketSort bus = new BucketSort();
+        List<TShirt> tShirts = tFactory.TShirtGenerateN(10000);
 
-        for (TShirt shirt : shirts) {
-            System.out.println(shirt);
-        }
-        quickSort(qs, shirts, true, 1); // Size ASC
-        quickSort(qs, shirts, false, 1); // Size DESC
+        SortingAlgorithmFactory algoFactory = new SortingAlgorithmFactory();
+        List<ISortingAlgorithm> sortingAlgorithms = algoFactory.generateSortingAlgorithms();
 
-        quickSort(qs, shirts, true, 2); // Color ASC
-        quickSort(qs, shirts, false, 2); // Color DESC
+        SortingStrategyFactory strategyFactory = new SortingStrategyFactory();
+        List<ISortingStrategy> sortingStrategies = strategyFactory.generateSortingStrategies();
 
-        quickSort(qs, shirts, true, 3); // Fabric ASC
-        quickSort(qs, shirts, false, 3); // Fabric DESC
+        for (ISortingAlgorithm sortingAlgorithm : sortingAlgorithms) {
+            for (ISortingStrategy sortingStrategy : sortingStrategies) {
+                long startTime = System.currentTimeMillis();
+                sortingAlgorithm.sort(tShirts, sortingStrategy);
+                long endTime = System.currentTimeMillis();
+                System.out.println("Sorting Algorithm: " + sortingAlgorithm.toString());
+                System.out.println("Sorting Strategy: " + sortingStrategy.toString());
+                System.out.println("Lapsed time: " + (endTime - startTime));
+//                printTShirts(tShirts);
+            }
 
-    }
-
-    public static void quickSort(QuickSort qs, List<TShirt> shirts, boolean sortType, int sortByProperty) {
-        System.out.println("/// --------- ///");
-        long startTime = 0;
-        long endTime = 0;
-        switch (sortByProperty) {
-            // Size - 1
-            case 1:
-                startTime = System.currentTimeMillis();
-                qs.sort(shirts, 0, shirts.size() - 1, sortType, 1);
-                endTime = System.currentTimeMillis();
-
-                if (sortType) {
-                    System.out.println("Time Lapsed for QS by Size ASC: " + (endTime - startTime));
-                } else {
-                    System.out.println("Time Lapsed for QS by Size DESC: " + (endTime - startTime));
-                }
-                break;
-            // Color - 2
-            case 2:
-                startTime = System.currentTimeMillis();
-                qs.sort(shirts, 0, shirts.size() - 1, sortType, 2);
-                endTime = System.currentTimeMillis();
-
-                if (sortType) {
-                    System.out.println("Time Lapsed for QS by Color ASC: " + (endTime - startTime));
-                } else {
-                    System.out.println("Time Lapsed for QS by Color DESC: " + (endTime - startTime));
-                }
-                break;
-            // Fabric - 3
-            case 3:
-                startTime = System.currentTimeMillis();
-                qs.sort(shirts, 0, shirts.size() - 1, sortType, 3);
-                endTime = System.currentTimeMillis();
-
-                if (sortType) {
-                    System.out.println("Time Lapsed for QS by Fabric ASC: " + (endTime - startTime));
-                } else {
-                    System.out.println("Time Lapsed for QS by Fabric DESC: " + (endTime - startTime));
-                }
-                break;
-        }
-
-        for (TShirt shirt : shirts) {
-            System.out.println(shirt);
         }
     }
 
-    // bubleSort
-    // bucketSort
+    public static void printTShirts(List<TShirt> tShirst) {
+        for (TShirt tShirt : tShirst) {
+            System.out.println(tShirt);
+        }
+        System.out.println("--------------------");
+    }
 }

@@ -1,10 +1,11 @@
-package tshirtsort.sorting;
+package tshirtsort.sortingstrategies;
 
 import tshirtsort.models.Size;
 import tshirtsort.models.TShirt;
 
-public class SortBySizeAsc implements ISortingStrategy, IBucketSort {
-
+public class SortBySizeAsc implements ISortingStrategy {
+    
+   
     @Override
     public int compare(TShirt t1, TShirt t2) {
         return t2.getSize().ordinal() - t1.getSize().ordinal();
@@ -19,4 +20,10 @@ public class SortBySizeAsc implements ISortingStrategy, IBucketSort {
     public int getBucket(TShirt tShirt) {
        return tShirt.getSize().ordinal();
     }
+
+    @Override
+    public String toString() {
+        return "SortBySizeAsc";
+    }
+    
 }

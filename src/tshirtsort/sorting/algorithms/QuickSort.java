@@ -1,16 +1,17 @@
-package tshirtsort.sorting;
+package tshirtsort.sorting.algorithms;
 
 import java.util.List;
 import tshirtsort.models.TShirt;
+import tshirtsort.sortingstrategies.ISortingStrategy;
 
-public class QuickSort {
-    
-//    TODO to be passed to an interface when all other algorithms are implemented
-    public void sort(List<TShirt> arr, ISortingStrategy sortingStrategy){
-        quickSort(arr, 0, arr.size()-1, sortingStrategy);
+public class QuickSort implements ISortingAlgorithm {
+
+    @Override
+    public void sort(List<TShirt> arr, ISortingStrategy sortingStrategy) {
+        quickSort(arr, 0, arr.size() - 1, sortingStrategy);
     }
 
-    public void quickSort(List<TShirt> arr, int low, int high, ISortingStrategy sortingStrategy) {
+    private void quickSort(List<TShirt> arr, int low, int high, ISortingStrategy sortingStrategy) {
         if (low < high) {
             int pi = partition(arr, low, high, sortingStrategy);
 
@@ -19,7 +20,7 @@ public class QuickSort {
         }
     }
 
-    int partition(List<TShirt> arr, int low, int high, ISortingStrategy sortingStrategy) {
+    private int partition(List<TShirt> arr, int low, int high, ISortingStrategy sortingStrategy) {
         TShirt pivot = arr.get(high);
         int i = (low - 1);
         for (int j = low; j < high; j++) {
@@ -39,4 +40,10 @@ public class QuickSort {
 
         return i + 1;
     }
+
+    @Override
+    public String toString() {
+        return "QuickSort";
+    }
+
 }

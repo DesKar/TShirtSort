@@ -1,9 +1,9 @@
-package tshirtsort.sorting;
+package tshirtsort.sortingstrategies;
 
 import tshirtsort.models.Color;
 import tshirtsort.models.TShirt;
 
-public class SortByColorDesc implements ISortingStrategy, IBucketSort {
+public class SortByColorDesc implements ISortingStrategy {
 
     @Override
     public int compare(TShirt t1, TShirt t2) {
@@ -19,4 +19,10 @@ public class SortByColorDesc implements ISortingStrategy, IBucketSort {
     public int getBucket(TShirt tShirt) {
         return computeNrOfBuckets() - tShirt.getColor().ordinal() - 1;
     }
+
+    @Override
+    public String toString() {
+        return "SortByColorDesc";
+    }
+
 }

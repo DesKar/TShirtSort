@@ -1,10 +1,12 @@
-package tshirtsort.sorting;
+package tshirtsort.sorting.algorithms;
 
 import java.util.List;
 import tshirtsort.models.TShirt;
+import tshirtsort.sortingstrategies.ISortingStrategy;
 
-public class BubbleSort {
+public class BubbleSort implements ISortingAlgorithm {
 
+    @Override
     public void sort(List<TShirt> arr, ISortingStrategy sortingStrategy) {
         int n = arr.size();
         boolean swapped;
@@ -26,4 +28,10 @@ public class BubbleSort {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return "BubbleSort";
+    }
+
 }
