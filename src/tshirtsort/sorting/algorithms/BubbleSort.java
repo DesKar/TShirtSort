@@ -2,7 +2,7 @@ package tshirtsort.sorting.algorithms;
 
 import java.util.List;
 import tshirtsort.models.TShirt;
-import tshirtsort.sortingstrategies.ISortingStrategy;
+import tshirtsort.sorting.strategies.ISortingStrategy;
 
 public class BubbleSort implements ISortingAlgorithm {
 

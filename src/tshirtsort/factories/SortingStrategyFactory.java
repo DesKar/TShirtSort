@@ -2,13 +2,13 @@ package tshirtsort.factories;
 
 import java.util.ArrayList;
 import java.util.List;
-import tshirtsort.sortingstrategies.ISortingStrategy;
-import tshirtsort.sortingstrategies.SortByColorAsc;
-import tshirtsort.sortingstrategies.SortByColorDesc;
-import tshirtsort.sortingstrategies.SortByFabricAsc;
-import tshirtsort.sortingstrategies.SortByFabricDesc;
-import tshirtsort.sortingstrategies.SortBySizeAsc;
-import tshirtsort.sortingstrategies.SortBySizeDesc;
+import tshirtsort.sorting.strategies.ISortingStrategy;
+import tshirtsort.sorting.strategies.SortByColorAsc;
+import tshirtsort.sorting.strategies.SortByColorDesc;
+import tshirtsort.sorting.strategies.SortByFabricAsc;
+import tshirtsort.sorting.strategies.SortByFabricDesc;
+import tshirtsort.sorting.strategies.SortBySizeAsc;
+import tshirtsort.sorting.strategies.SortBySizeDesc;
 
 public class SortingStrategyFactory {
     

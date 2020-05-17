@@ -3,7 +3,7 @@ package tshirtsort.sorting.algorithms;
 import java.util.ArrayList;
 import java.util.List;
 import tshirtsort.models.TShirt;
-import tshirtsort.sortingstrategies.ISortingStrategy;
+import tshirtsort.sorting.strategies.ISortingStrategy;
 
 public class BucketSort implements ISortingAlgorithm {
 

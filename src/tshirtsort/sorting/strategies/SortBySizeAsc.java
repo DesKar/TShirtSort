@@ -1,4 +1,4 @@
-package tshirtsort.sortingstrategies;
+package tshirtsort.sorting.strategies;
 
 import tshirtsort.models.Size;
 import tshirtsort.models.TShirt;

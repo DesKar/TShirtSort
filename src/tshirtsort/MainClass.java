@@ -6,7 +6,7 @@ import tshirtsort.factories.SortingStrategyFactory;
 import tshirtsort.factories.TShirtFactory;
 import tshirtsort.models.TShirt;
 import tshirtsort.sorting.algorithms.ISortingAlgorithm;
-import tshirtsort.sortingstrategies.ISortingStrategy;
+import tshirtsort.sorting.strategies.ISortingStrategy;
 
 public class MainClass {
 
