@@ -1,13 +1,11 @@
+package SortingAlgorithmsTest;
+
 
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import tshirtsort.models.Color;
 import tshirtsort.models.Fabric;
 import tshirtsort.models.Size;
