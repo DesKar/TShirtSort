@@ -8,10 +8,12 @@ import tshirtsort.sorting.strategies.SortByColorDesc;
 import tshirtsort.sorting.strategies.SortByFabricAsc;
 import tshirtsort.sorting.strategies.SortByFabricDesc;
 import tshirtsort.sorting.strategies.SortBySizeAsc;
+import tshirtsort.sorting.strategies.SortBySizeColorFabricAsc;
+import tshirtsort.sorting.strategies.SortBySizeColorFabricDesc;
 import tshirtsort.sorting.strategies.SortBySizeDesc;
 
 public class SortingStrategyFactory {
-    
+
     public List<ISortingStrategy> generateSortingStrategies() {
         List<ISortingStrategy> sortingStrategies = new ArrayList<>();
         sortingStrategies.add(new SortBySizeAsc());
@@ -20,10 +22,9 @@ public class SortingStrategyFactory {
         sortingStrategies.add(new SortByColorDesc());
         sortingStrategies.add(new SortByFabricAsc());
         sortingStrategies.add(new SortByFabricDesc());
-        
+        sortingStrategies.add(new SortBySizeColorFabricAsc());
+        sortingStrategies.add(new SortBySizeColorFabricDesc());
         return sortingStrategies;
     }
-    
 
-    
 }

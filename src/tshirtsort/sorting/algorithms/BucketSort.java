@@ -19,10 +19,10 @@ public class BucketSort implements ISortingAlgorithm {
             buckets[i] = new ArrayList<>();
         }
 
-        arr.forEach((tShirt) -> {
+        for (TShirt tShirt : arr) {
             int index = sortingStrategy.getBucket(tShirt);
             buckets[index].add(tShirt);
-        });
+        }
 
         int i = 0;
         for (List<TShirt> bucket : buckets) {

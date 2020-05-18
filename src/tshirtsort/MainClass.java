@@ -12,7 +12,7 @@ public class MainClass {
 
     public static void main(String[] args) {
         TShirtFactory tFactory = new TShirtFactory();
-        List<TShirt> tShirts = tFactory.TShirtGenerateN(10000);
+        List<TShirt> tShirts = tFactory.TShirtGenerateN(5);
 
         SortingAlgorithmFactory algoFactory = new SortingAlgorithmFactory();
         List<ISortingAlgorithm> sortingAlgorithms = algoFactory.generateSortingAlgorithms();

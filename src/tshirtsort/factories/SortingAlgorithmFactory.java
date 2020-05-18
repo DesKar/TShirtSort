@@ -14,7 +14,7 @@ public class SortingAlgorithmFactory {
         sortingAlgorithms.add(new QuickSort());
         sortingAlgorithms.add(new BubbleSort());
         sortingAlgorithms.add(new BucketSort());
-        
+
         return sortingAlgorithms;
     }
 

@@ -1,5 +1,7 @@
 package tshirtsort.sorting.strategies;
 
+import tshirtsort.models.Color;
+import tshirtsort.models.Fabric;
 import tshirtsort.models.Size;
 import tshirtsort.models.TShirt;
 
@@ -21,12 +23,17 @@ public class SortBySizeColorFabricDesc implements ISortingStrategy {
 
     @Override
     public int computeNrOfBuckets() {
-        return Size.values().length;
+        return Size.values().length * Color.values().length * Fabric.values().length;
     }
 
     @Override
     public int getBucket(TShirt tShirt) {
-        return tShirt.getSize().ordinal();
+        int size = tShirt.getSize().ordinal();
+        int color = tShirt.getColor().ordinal();
+        int fabric = tShirt.getFabric().ordinal();
+        int colorLength = Color.values().length;
+        int fabricLength = Fabric.values().length;
+        return (colorLength * fabricLength * size) + (fabricLength * color) + fabric;
     }
 
     @Override
