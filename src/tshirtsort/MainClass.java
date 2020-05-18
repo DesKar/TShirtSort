@@ -12,7 +12,7 @@ public class MainClass {
 
     public static void main(String[] args) {
         TShirtFactory tFactory = new TShirtFactory();
-        List<TShirt> tShirts = tFactory.TShirtGenerateN(5);
+        List<TShirt> tShirts = tFactory.TShirtGenerateN(10000);
 
         SortingAlgorithmFactory algoFactory = new SortingAlgorithmFactory();
         List<ISortingAlgorithm> sortingAlgorithms = algoFactory.generateSortingAlgorithms();
@@ -31,6 +31,12 @@ public class MainClass {
                 System.out.println("-----------------------------------------");
             }
 
+        }
+    }
+
+    public static void print(List<TShirt> tShirts) {
+        for (TShirt tshirt : tShirts) {
+            System.out.println(tshirt);
         }
     }
 }

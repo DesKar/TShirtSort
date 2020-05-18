@@ -33,7 +33,7 @@ public class SortBySizeColorFabricDesc implements ISortingStrategy {
         int fabric = tShirt.getFabric().ordinal();
         int colorLength = Color.values().length;
         int fabricLength = Fabric.values().length;
-        return (colorLength * fabricLength * size) + (fabricLength * color) + fabric;
+        return computeNrOfBuckets() - ((colorLength * fabricLength * size) + (fabricLength * color) + fabric) - 1;
     }
 
     @Override
