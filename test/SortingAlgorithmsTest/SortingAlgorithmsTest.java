@@ -41,6 +41,8 @@ public class SortingAlgorithmsTest {
     TShirt tShirt3 = new TShirt("Violette-XXL-Polyester", Color.VIOLET, Size.XXL, Fabric.POLYESTER);
     TShirt tShirt4 = new TShirt("Indigo-XS-Cashmere", Color.INDIGO, Size.XS, Fabric.CASHMERE);
     TShirt tShirt5 = new TShirt("Green-XXXL-Wool", Color.GREEN, Size.XXXL, Fabric.WOOL);
+    TShirt tShirt6 = new TShirt("Blue-S-Silk", Color.BLUE, Size.S, Fabric.SILK);
+    TShirt tShirt7 = new TShirt("Green-S-Cotton", Color.GREEN, Size.S, Fabric.COTTON);
 
     public SortingAlgorithmsTest() {
     }
